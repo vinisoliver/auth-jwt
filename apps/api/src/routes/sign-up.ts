@@ -4,7 +4,7 @@ import { UserSchema } from "../types/users-types";
 import { UserRepository } from "../repositories/user-repository";
 import { BadRequestError } from "../errors/bad-request-error";
 
-export async function SignInRoute(server: FastifyInstance) {
+export async function SignUpRoute(server: FastifyInstance) {
   const userRepository = new UserRepository()
   
   server.post('/sign-up', async (request: FastifyRequest, response: FastifyReply) => {
@@ -14,6 +14,20 @@ export async function SignInRoute(server: FastifyInstance) {
 
       if(!validatedData.success) {
         throw new BadRequestError('Invalid data')
+      }
+
+      const verifyIfUsernameAlreadyExists = await userRepository.getByUsername(validatedData.data.username)
+
+      if(verifyIfUsernameAlreadyExists) {
+        throw new BadRequestError('Username already exists')
+      }
+
+      if(validatedData.data.cpf) {
+        const verifyIfCpfAlreadyExists = await userRepository.getByCpf(validatedData.data.cpf)
+
+        if(verifyIfCpfAlreadyExists) {
+          throw new BadRequestError('CPF already exists')
+        }
       }
       
       await userRepository.create(validatedData.data)

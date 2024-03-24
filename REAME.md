@@ -1,22 +1,36 @@
-User: 
-- Username
-- First Name
+Sign Up: 
+- Username * (UNIQUE)
+- First Name *
 - Last Name
-- Email
-- Date of Birth
-- Number
+- Email *
+- Date of Birth *
+- Number *
 - CEP
-- CPF
-- Password
+- CPF (UNIQUE)
+- Password *
+
+Login Up:
+- Username | CPF *
+- Password *
 
 MySQL Commands:
 ```sql
   CREATE DATABASE auth_jwt
 
   CREATE TABLE users (
-    id INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(30) NOT NULL DEFAULT '',
-    password VARCHAR(35) NOT NULL DEFAULT '',
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(35) NOT NULL,
+    cep VARCHAR(8),
+    cpf VARCHAR(11),
+    dateOfBirth DATE NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    firstName VARCHAR(20) NOT NULL, 
+    lastName VARCHAR(40) DEFAULT '', 
+    phoneNumber VARCHAR(11) NOT NULL,
+
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    id VARCHAR(200) NOT NULL,
+
     PRIMARY KEY(id)
   )
 ```
