@@ -28,6 +28,8 @@ export class UserRepository implements IUserRepository {
       id,
     ]
   
+    console.log(password)
+
     await (await dbConnection).query(sql, values)
   }
 

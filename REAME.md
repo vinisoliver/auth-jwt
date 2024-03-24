@@ -13,13 +13,14 @@ Login Up:
 - Username | CPF *
 - Password *
 
+
 MySQL Commands:
 ```sql
   CREATE DATABASE auth_jwt
 
   CREATE TABLE users (
     username VARCHAR(30) NOT NULL,
-    password VARCHAR(35) NOT NULL,
+    password VARCHAR(80) NOT NULL,
     cep VARCHAR(8),
     cpf VARCHAR(11),
     dateOfBirth DATE NOT NULL,
