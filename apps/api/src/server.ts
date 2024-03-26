@@ -1,10 +1,12 @@
 import fastify from 'fastify'
 
 import { SignUpRoute } from './routes/sign-up'
+import { LoginRoute } from './routes/login'
 
 const server = fastify({ logger: true })
 
 server.register(SignUpRoute)
+server.register(LoginRoute)
 
 server.listen({
   port: Number(process.env.SERVER_PORT) || 3333

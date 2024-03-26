@@ -9,7 +9,7 @@ import { BadRequestError } from "../errors/bad-request-error";
 export async function SignUpRoute(server: FastifyInstance) {
   const userRepository = new UserRepository()
   
-  server.post('/sign-up', async (request: FastifyRequest, response: FastifyReply) => {
+  server.post('/api/sign-up', async (request: FastifyRequest, response: FastifyReply) => {
     try {
       const data = request.body
       const validatedData = UserSchema.safeParse(data)
@@ -45,7 +45,7 @@ export async function SignUpRoute(server: FastifyInstance) {
       if(error instanceof BadRequestError) {
         response
         .status(error.statusCode)
-        .send(error.message)
+        .send({ error: error.message })
         return
      }
 
