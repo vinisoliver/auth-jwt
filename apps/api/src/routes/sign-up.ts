@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { randomInt } from "crypto";
 import { hash } from "bcrypt";
 
-import { UserSchema } from "../types/users-types";
+import { UserDTOSchema } from "../types/users-types";
 import { UserRepository } from "../repositories/user-repository";
 import { BadRequestError } from "../errors/bad-request-error";
 
@@ -12,7 +12,7 @@ export async function SignUpRoute(server: FastifyInstance) {
   server.post('/api/sign-up', async (request: FastifyRequest, response: FastifyReply) => {
     try {
       const data = request.body
-      const validatedData = UserSchema.safeParse(data)
+      const validatedData = UserDTOSchema.safeParse(data)
 
       if(!validatedData.success) {
         throw new BadRequestError('Invalid data')

@@ -5,3 +5,5 @@ export const LoginDTOSchema = z.object({
   cpf: z.number().optional(),
   password: z.string(),
 })
+
+export type LoginDTOType = z.infer<typeof LoginDTOSchema>
