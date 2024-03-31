@@ -27,7 +27,7 @@ export const UserPasswordSchema = z.object({
 export const UserDTOSchema = UserSchema.merge(UserPasswordSchema)
 export const UserResponseSchema = UserSchema.merge(UserIdSchema)
 
-export type UserDTOType = z.infer<typeof UserDTOSchema>
-export type UserIdType = z.infer<typeof UserIdSchema>
-export type UserPasswordType = z.infer<typeof UserPasswordSchema>
-export type UserResponseType = z.infer<typeof UserResponseSchema>
+export type UserDTOSchemaType = z.infer<typeof UserDTOSchema>
+export type UserIdSchemaType = z.infer<typeof UserIdSchema>
+export type UserPasswordSchemaType = z.infer<typeof UserPasswordSchema>
+export type UserResponseSchemaType = z.infer<typeof UserResponseSchema>

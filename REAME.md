@@ -9,10 +9,9 @@ Sign Up:
 - CPF (UNIQUE)
 - Password *
 
-Login Up:
+Log In:
 - Username | CPF *
 - Password *
-
 
 MySQL Commands:
 ```sql

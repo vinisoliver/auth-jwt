@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import { dbConnection } from "../lib/db/mysql";
 
-import { UserDTOType, UserPasswordType, UserResponseType } from "../types/users-types";
+import { UserDTOType, UserPasswordType, UserResponseType } from "../types/users-types copy";
 import { IUserRepository } from "./types/repository-interfaces";
 import { MySqlResponse } from "./types/mysql-response";
 

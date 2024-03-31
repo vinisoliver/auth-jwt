@@ -1,4 +1,4 @@
-import { UserDTOType, UserPasswordType, UserResponseType } from "../../types/users-types";
+import { UserDTOType, UserPasswordType, UserResponseType } from "../../types/users-types copy";
 
 export interface IUserRepository {
   create(data: UserDTOType): void
